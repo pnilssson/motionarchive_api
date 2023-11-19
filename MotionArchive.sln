@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workout.API", "src\Workout\Workout.API\Workout.API.csproj", "{BD0C05DF-67F9-4C3F-9F6E-AA927760A364}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DA532412-AA7F-4E2B-AB51-CAA4ABB4B607}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workout", "Workout", "{FB777097-5533-45A8-B3A5-E751125A34D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD0C05DF-67F9-4C3F-9F6E-AA927760A364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD0C05DF-67F9-4C3F-9F6E-AA927760A364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD0C05DF-67F9-4C3F-9F6E-AA927760A364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD0C05DF-67F9-4C3F-9F6E-AA927760A364}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FB777097-5533-45A8-B3A5-E751125A34D3} = {DA532412-AA7F-4E2B-AB51-CAA4ABB4B607}
+		{BD0C05DF-67F9-4C3F-9F6E-AA927760A364} = {FB777097-5533-45A8-B3A5-E751125A34D3}
+	EndGlobalSection
+EndGlobal
