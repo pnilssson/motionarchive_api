@@ -26,4 +26,7 @@ app.UseHttpsRedirection();
 app.MapGroup("api/v1/workout")
     .MapWorkouts();
 
+app.MapGroup("api/v1/workoutType")
+    .MapWorkoutTypes();
+
 app.Run();
