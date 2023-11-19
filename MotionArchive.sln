@@ -4,13 +4,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FFAC82BE-37C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workout", "Workout", "{D8F184B1-77AD-4F18-9E03-86F5255DD2E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workout.API", "src\Workout\Workout.API\Workout.API.csproj", "{726ECD9F-AC70-4755-BE96-362D872D54DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "src\Workout\API\API.csproj", "{726ECD9F-AC70-4755-BE96-362D872D54DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workout.Domain", "src\Workout\Workout.Domain\Workout.Domain.csproj", "{2492AAA8-5C74-4DFE-A083-A7E850865E87}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "src\Workout\Domain\Domain.csproj", "{2492AAA8-5C74-4DFE-A083-A7E850865E87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workout.Infrastructure", "src\Workout\Workout.Infrastructure\Workout.Infrastructure.csproj", "{37BB8638-965F-47BB-9F97-600690FFAB23}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "src\Workout\Infrastructure\Infrastructure.csproj", "{37BB8638-965F-47BB-9F97-600690FFAB23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workout.Application", "src\Workout\Workout.Application\Workout.Application.csproj", "{6BC1CA65-59F9-4D76-BF95-BDDD7D932336}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "src\Workout\Application\Application.csproj", "{6BC1CA65-59F9-4D76-BF95-BDDD7D932336}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
