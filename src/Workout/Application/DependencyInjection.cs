@@ -1,4 +1,7 @@
 using System.Reflection;
+using Application.Common.Behaviours;
+using FluentValidation;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application;
@@ -9,6 +12,7 @@ public static class DependencyInjection
     {
         services.AddAutoMapper();
         services.AddMediator();
+        services.AddValidators();
     }
     
     private static void AddAutoMapper(this IServiceCollection services)
@@ -18,6 +22,15 @@ public static class DependencyInjection
     
     private static void AddMediator(this IServiceCollection services)
     {
-        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+        services.AddMediatR(cfg =>
+        {
+            cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+            cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+        });
     }
+    
+    private static void AddValidators(this IServiceCollection services)
+    {
+        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+    }   
 }

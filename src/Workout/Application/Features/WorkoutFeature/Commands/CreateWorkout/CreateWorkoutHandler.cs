@@ -19,7 +19,7 @@ public class CreateWorkoutHandler : IRequestHandler<CreateWorkoutCommand, Workou
     
     public async Task<WorkoutResponse> Handle(CreateWorkoutCommand request, CancellationToken cancellationToken)
     {
-        var workout = new Workout(request.Description, request.Date, request.WorkoutTypeId);
+        var workout = new Workout(request.Description, DateOnly.FromDateTime(request.Date), request.Time, request.WorkoutTypeId);
         var result = _context.Workout.Add(workout);
         
         await _context.SaveEntitiesAsync(cancellationToken);

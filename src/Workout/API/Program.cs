@@ -1,3 +1,4 @@
+using API;
 using API.Endpoints;
 using Application;
 using Infrastructure;
@@ -7,10 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddApplicationLayer();
 builder.Services.AddInfrastructure(builder.Configuration);
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddWebServices();
 
 var app = builder.Build();
 
@@ -22,6 +20,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseExceptionHandler(options => { });
 
 app.MapGroup("api/v1/workout")
     .MapWorkouts();

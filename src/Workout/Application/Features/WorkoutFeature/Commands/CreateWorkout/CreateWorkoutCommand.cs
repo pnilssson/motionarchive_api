@@ -7,7 +7,9 @@ public class CreateWorkoutCommand : IRequest<WorkoutResponse>
 {
     public string Description { get; init; } = string.Empty;
 
-    public DateOnly Date { get; init; }
+    public DateTime Date { get; init; }
+    
+    public int Time { get; init; }
 
     public int WorkoutTypeId { get; init; }
 }

@@ -11,6 +11,7 @@ public static class WorkoutEndpoint
     {
         group.MapPost("/", CreateWorkout)
             .WithName("Workout")
+            .WithTags("Workout")
             .WithOpenApi();
 
         return group;
