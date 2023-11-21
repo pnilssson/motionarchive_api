@@ -7,6 +7,7 @@ public class CreateWorkoutTypeCommandValidator : AbstractValidator<CreateWorkout
     public CreateWorkoutTypeCommandValidator()
     {
         RuleFor(command => command.Name)
-            .NotEmpty();
+            .NotEmpty()
+            .MaximumLength(50);
     }
 }

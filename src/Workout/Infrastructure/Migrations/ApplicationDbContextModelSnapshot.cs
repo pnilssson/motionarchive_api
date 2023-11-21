@@ -47,7 +47,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("WorkoutTypeId");
 
-                    b.ToTable("Workout");
+                    b.ToTable("Workout", (string)null);
                 });
 
             modelBuilder.Entity("Domain.WorkoutTypeAggregate.WorkoutType", b =>
@@ -64,7 +64,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("WorkoutType");
+                    b.ToTable("WorkoutType", (string)null);
                 });
 
             modelBuilder.Entity("Domain.WorkoutAggregate.Workout", b =>

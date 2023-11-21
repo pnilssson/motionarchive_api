@@ -1,7 +1,7 @@
 using Domain.WorkoutAggregate;
 using FluentAssertions;
 
-namespace Application.UnitTests;
+namespace Application.UnitTests.Aggregates;
 
 public class WorkoutAggregateTests
 {
@@ -25,13 +25,11 @@ public class WorkoutAggregateTests
         workout.DomainEvents.Should().BeNull();
     }
 
-    [Theory]
-    [InlineData("")]
-    [InlineData(" ")]
-    [InlineData(null)]
-    public void Creating_Workout_With_Invalid_Description_Should_Throw_Exception(string description)
+    [Fact]
+    public void Creating_Workout_With_Invalid_Description_Should_Throw_Exception()
     {
         // Arrange
+        var description = new string('a', 5001);
         var date = DateOnly.FromDateTime(DateTime.Now);
         const int time = 15;
         const int workoutTypeId = 1;
@@ -40,7 +38,7 @@ public class WorkoutAggregateTests
         Action action = () => new Workout(description, date, time, workoutTypeId);
 
         // Assert
-        action.Should().ThrowExactly<ArgumentNullException>();
+        action.Should().ThrowExactly<ArgumentException>();
     }
     
     [Theory]

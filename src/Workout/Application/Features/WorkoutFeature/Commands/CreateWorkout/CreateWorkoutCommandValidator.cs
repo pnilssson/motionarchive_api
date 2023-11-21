@@ -7,6 +7,9 @@ public class CreateWorkoutCommandValidator : AbstractValidator<CreateWorkoutComm
 {
     public CreateWorkoutCommandValidator(IApplicationDbContext context)
     {
+        RuleFor(command => command.Description)
+            .MaximumLength(5000);
+        
         RuleFor(command => command.Time)
             .GreaterThan(0);
 
