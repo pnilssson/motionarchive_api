@@ -18,6 +18,7 @@ public class WorkoutAggregateTests
         var workout = new Workout(description, date, time, workoutTypeId);
 
         // Assert
+        workout.Should().NotBeNull();
         workout.Description.Should().Be(description);
         workout.Date.Should().Be(date);
         workout.Time.Should().Be(time);

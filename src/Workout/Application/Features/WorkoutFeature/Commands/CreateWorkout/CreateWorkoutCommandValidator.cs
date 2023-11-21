@@ -8,7 +8,7 @@ public class CreateWorkoutCommandValidator : AbstractValidator<CreateWorkoutComm
     public CreateWorkoutCommandValidator(IApplicationDbContext context)
     {
         RuleFor(command => command.Description)
-            .MaximumLength(5000);
+            .MaximumLength(4000);
 
         RuleFor(command => command.WorkoutTypeId)
             .Must(workoutTypeId => context.WorkoutType.Any(wt => wt.Id == workoutTypeId))

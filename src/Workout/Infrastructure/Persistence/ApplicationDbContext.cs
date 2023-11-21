@@ -1,6 +1,7 @@
 using Application.Common.Interfaces;
 using Domain.WorkoutAggregate;
 using Domain.WorkoutTypeAggregate;
+using Infrastructure.Configurations;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,6 +20,12 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IMediator mediator) : base(options)
     {
         _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+    }
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfiguration(new WorkoutConfiguration());
+        modelBuilder.ApplyConfiguration(new WorkoutTypeConfiguration());
     }
 
     public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
