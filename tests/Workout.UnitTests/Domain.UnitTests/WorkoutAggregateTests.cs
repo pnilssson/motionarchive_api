@@ -6,7 +6,7 @@ namespace Application.UnitTests;
 public class WorkoutAggregateTests
 {
     [Fact]
-    public void Creating_Workout_With_Valid_Values_Should_Not_Throw_Exception()
+    public void Creating_Workout_With_Valid_Values_Should_Create_Workout()
     {
         // Arrange
         const string description = "Rowing";
