@@ -18,9 +18,7 @@ public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TReque
 
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
-        var typeName = typeof(TRequest).Name;
-
-        _logger.LogInformation("Validating command {CommandType}", typeName);
+        var requestName = typeof(TRequest).Name;
 
         var context = new ValidationContext<TRequest>(request);
 
@@ -35,7 +33,7 @@ public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TReque
 
         if (failures.Count == 0) return await next();
         
-        _logger.LogWarning("Validation errors occurred for command: {CommandType} - Errors: {@ValidationErrors}", typeName, failures);
+        _logger.LogWarning("Validation errors occurred for command: {CommandName} - Errors: {@ValidationErrors}", requestName, failures);
         
         throw new ValidationException(failures);
     }
