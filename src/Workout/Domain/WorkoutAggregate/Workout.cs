@@ -14,9 +14,9 @@ public class Workout : Entity, IAggregateRoot
     
     public Workout(string description, DateOnly date, int time, int workoutTypeId)
     {
-        Description = description.Length <= 5000 ? description : throw new ArgumentException($"{nameof(description)} may not be longer than 5000 characters.");
+        Description = description;
         Date = date;
-        Time = time > 0 ? time : throw new ArgumentException($"Required input {nameof(time)} cannot be zero or negative.");
-        WorkoutTypeId = workoutTypeId > 0 ? workoutTypeId : throw new ArgumentException($"Required input {nameof(workoutTypeId)} cannot be zero or negative.");
+        Time = time;
+        WorkoutTypeId = workoutTypeId;
     }
 }

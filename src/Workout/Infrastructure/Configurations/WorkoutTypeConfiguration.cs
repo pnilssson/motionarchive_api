@@ -12,6 +12,7 @@ public class WorkoutTypeConfiguration : IEntityTypeConfiguration<WorkoutType>
         builder.Ignore(wt => wt.DomainEvents);
 
         builder.Property(wt => wt.Name)
+            .IsRequired()
             .HasMaxLength(50);
             
         builder.HasMany<Workout>()
