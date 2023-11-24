@@ -2,6 +2,7 @@ using Application.Features.WorkoutFeature.Commands.CreateWorkout;
 using Application.Features.WorkoutFeature.Common.Models;
 using Application.Features.WorkoutTypeFeature.Commands.CreateWorkoutType;
 using Application.Features.WorkoutTypeFeature.Common.Models;
+using Application.Features.WorkoutTypeFeature.Queries.GetWorkoutTypes;
 using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
 
@@ -11,12 +12,19 @@ public static class WorkoutTypeEndpoint
 {
     public static RouteGroupBuilder MapWorkoutTypes(this RouteGroupBuilder group)
     {
-        group.MapPost("/", CreateWorkoutType)
-            .WithName("WorkoutType")
-            .WithTags("WorkoutType")
+        group.MapGet("/", GetWorkoutTypes);
+        group.MapPost("/", CreateWorkoutType);
+            
+        group.WithTags("WorkoutType")
             .WithOpenApi();
 
         return group;
+    }
+    
+    private static async Task<Ok<List<WorkoutTypeResponse>>> GetWorkoutTypes(IMediator mediator)
+    {
+        var result = await mediator.Send(new GetWorkoutTypesQuery());
+        return TypedResults.Ok(result);
     }
 
     private static async Task<Created<WorkoutTypeResponse>> CreateWorkoutType(IMediator mediator, CreateWorkoutTypeCommand command)
