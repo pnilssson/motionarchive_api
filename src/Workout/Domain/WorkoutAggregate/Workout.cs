@@ -2,7 +2,7 @@ using Domain.SeedWork;
 
 namespace Domain.WorkoutAggregate;
 
-public class Workout : Entity, IAggregateRoot
+public class Workout : UserOwnedAuditableEntity, IAggregateRoot
 {
     public string Description { get; private set; }
 
