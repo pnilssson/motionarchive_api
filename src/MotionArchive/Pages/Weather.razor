@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@page "/weather"
+@attribute [Authorize]
+@inject HttpClient Http
+
+<PageTitle>Weather</PageTitle>
+
+<h1>Weather</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (_workoutTypes == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else
+{
+    <table class="table">
+        <tbody>
+        @foreach (var workoutType in _workoutTypes)
+        {
+            <tr>
+                <td>@workoutType.Id</td>
+                <td>@workoutType.Name</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+    private WorkoutTypeResponse[]? _workoutTypes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _workoutTypes = await Http.GetFromJsonAsync<WorkoutTypeResponse[]>("workouttype");
+    }
+
+    public class WorkoutTypeResponse
+    {
+        public int Id { get; set; }
+        public string Name { get; init; } = string.Empty;
+    }
+
+}
