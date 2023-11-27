@@ -1,6 +1,4 @@
 using System.Security.Claims;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using Application.Common.Exceptions;
 using Application.Common.Interfaces;
 
@@ -13,10 +11,6 @@ public class CurrentUser : ICurrentUser
     public CurrentUser(IHttpContextAccessor httpContextAccessor)
     {
         _httpContextAccessor = httpContextAccessor;
-        Console.WriteLine(JsonSerializer.Serialize(_httpContextAccessor.HttpContext?.User, new JsonSerializerOptions()
-        {
-            ReferenceHandler = ReferenceHandler.IgnoreCycles
-        }));
     }
 
     public string Username => _httpContextAccessor.HttpContext?.User.FindFirstValue("name") 
