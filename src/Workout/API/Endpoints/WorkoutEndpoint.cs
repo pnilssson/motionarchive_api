@@ -9,7 +9,8 @@ public static class WorkoutEndpoint
 {
     public static RouteGroupBuilder MapWorkouts(this RouteGroupBuilder group)
     {
-        group.MapPost("/", CreateWorkout);
+        group.MapPost("/", CreateWorkout)
+            .RequireAuthorization();
         
         group.WithTags("Workout")
             .WithOpenApi();

@@ -10,6 +10,8 @@ public class WorkoutConfiguration : IEntityTypeConfiguration<Workout>
     {
         builder.Ignore(w => w.DomainEvents);
 
+        builder.HasIndex(w => w.UserId);
+
         builder.Property(w => w.Description)
             .HasMaxLength(4000);
     }

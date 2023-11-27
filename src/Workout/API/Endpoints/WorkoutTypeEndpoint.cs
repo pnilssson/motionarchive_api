@@ -12,8 +12,11 @@ public static class WorkoutTypeEndpoint
 {
     public static RouteGroupBuilder MapWorkoutTypes(this RouteGroupBuilder group)
     {
-        group.MapGet("/", GetWorkoutTypes);
-        group.MapPost("/", CreateWorkoutType);
+        group.MapGet("/", GetWorkoutTypes)
+            .RequireAuthorization();
+        
+        group.MapPost("/", CreateWorkoutType)
+            .RequireAuthorization();;
             
         group.WithTags("WorkoutType")
             .WithOpenApi();
